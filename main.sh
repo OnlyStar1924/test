@@ -15,8 +15,19 @@
 #     echo "Diverged"
 # fi
 
-if git pull --dry-run | grep -q -v 'Already up-to-date.' && changed=1; then
-    echo "case 1"
-else
-    echo "case 2"
+# if git pull --dry-run | grep -q -v 'Already up-to-date.' && changed=1; then
+#     echo "case 1"
+# else
+#     echo "case 2"
+# fi
+
+cmd=$(git remote show origin)
+subcmd=${cmd:316}
+tag=\(up\ to\ date\)
+
+
+if [ "$subcmd" == "$tag" ]
+then
+    echo "ko lam gi"
 fi
+
